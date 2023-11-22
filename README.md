@@ -132,15 +132,15 @@ mvn snyk:test -fn
 - Organizations may choose to configure their build processes based on their risk tolerance and the criticality of
   identified issues.
 
-## Step 10: Reporting Vulnerabilities Issues
+## Reporting Vulnerabilities Issues
 
 As a DevSecOps Engineer, a crucial responsibility involves reporting security and vulnerability issues identified during
 the pipeline. This ensures that developers can take prompt action to address and resolve these issues. JIRA, a widely
 recognized task monitoring and project management tool, serves as an excellent platform for centralized task management.
 
-## Step 11: Reporting Security Issues in JIRA
+### Reporting Security Issues in JIRA
 
-### Overview:
+#### Overview:
 
 In this step, we'll guide you through the process of reporting a security issue, specifically a command injection
 vulnerability identified through a SAST scan, in JIRA.
@@ -148,58 +148,72 @@ vulnerability identified through a SAST scan, in JIRA.
 ### Steps to Report a Security Issue:
 
 1. **Access JIRA Dashboard:**
+
 - Log in to JIRA and access the JIRA dashboard.
 
 2. **Navigate to Backlog:**
+
 - Within the JIRA dashboard, locate and navigate to the "Backlog" section.
 
 3. **Create an Issue:**
+
 - Click on the "Create Issue" option within the backlog.
 
 4. **Open Create Issue Dialog:**
     - Access the three dots on the right side to open the create issue dialogue.
 
 5. **Fill in Details:**
+
 - Complete the required details in the create issue dialog to report the security issue.
 - Ensure to select the issue type as "Bug" for security-related concerns.
 
 6. **Provide Specifics:**
+
 - Include details such as the title, type (e.g., command injection), and a comprehensive description of the
   identified issue.
 
 7. **Add Scan Details:**
+
 - Embed relevant scan details, specifying the type of scan (e.g., SAST) and include information about the commit ID
   associated with the CICD scan.
 
 8. **Include Vulnerability Information:**
+
 - Mention the file path, file name, vulnerable code function, and the specific line number where the security issue
   is located.
 - Copy relevant information from the scan tool (e.g., SonarCloud) and paste it into the JIRA issue.
 
 9. **References and Mitigations:**
+
 - Provide references and potential mitigations for the identified security issue.
 - These references can be sourced from the scan tool used (e.g., SonarCloud).
 
 10. **Specify Details:**
+
 - Add details such as vulnerability category, severity, analyst name, the environment of identification, and
   assignment to the responsible developer.
 
 11. **Set Priority and Sprint:**
+
 - Assign priority levels based on the severity of the security issue.
 - Include the bug in the relevant sprint for resolution.
 
 12. **Submit the Report:**
+
 - Click on "Create Issue" to submit the security issue report.
 
 ### Post-Reporting Actions:
 
 1. **Issue Assignment:**
+
 - Once the issue is assigned to developers, they move it to the "In Progress" stage.
 
 2. **Developer Fix and Retesting:**
+
 - Developers address the issue and assign it back for retesting.
 
 3. **Verification and Closure:**
+
 - Upon successful retesting, the issue is moved to the "Done" stage, indicating resolution.
 
 ### Note:
@@ -211,13 +225,16 @@ vulnerability identified through a SAST scan, in JIRA.
 ### Utilizing JIRA for Reporting:
 
 To report security and vulnerability issues, follow these steps:
+**Note** Jira has connector with SonarQube which allows to create bug reports automatically.
 
 1. **SonarCloud SAST Vulnerability:**
 
 - Identify and report SAST vulnerabilities using SonarCloud.
 - Create a JIRA ticket with details about the identified issues.
-- Include relevant information from the SonarCloud report.
+- Include relevant information from the SonarCloud report. All the information can be taken from the SonarCloud report
+  ex: Commit ID, file path, filename and others.
 - ![SonarCloud Vulnerability Report](./images/sonarcloud_report.png)
+- ![SonarCloud Vulnerability Report](./images/sonarcloud_report_2.png)
 
 2. **Snyk SCA Vulnerability:**
 
