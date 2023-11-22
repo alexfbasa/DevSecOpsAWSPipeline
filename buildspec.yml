@@ -1,12 +1,11 @@
 version: 0.1
 env:
-    secrets-manager:
-      TOKEN: firstSecret:tokenForSonar
+  secrets-manager:
+    TOKEN: firstSecret:tokenForSonar
 phases:
   build:
     commands:
      - mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=devsecopsawsterraformsast_devsecopsawsterraformsast -Dsonar.login=$TOKEN
-
      - sleep 5
      - |-
        quality_status=$(curl -s -u $TOKEN: https://sonarcloud.io/api/qualitygates/project_status?projectKey=devsecopsawsterraformsast_devsecopsawsterraformsast | jq -r '.projectStatus.status')
@@ -14,21 +13,22 @@ phases:
 #        if [ $quality_status = "ERROR" ] ; then exit 1;fi
 
      - |-
-          apt-get update
-          apt-get -y install maven 
-          SNYK_TOKEN=2f4afa39-c493-4c6d-b34e-080c1a8f9014
-          export SNYK_TOKEN
-          mvn snyk:test -fn 
+       apt-get update
+       apt-get -y install maven 
+       SNYK_TOKEN=2f4afa39-c493-4c6d-b34e-080c1a8f9014
+       export SNYK_TOKEN
+       mvn snyk:test -fn 
 
      - |-
-        apt-get update
-        apt-get -y install wget
-        apt-get -y install default-jdk
-        wget https://github.com/zaproxy/zaproxy/releases/download/v2.11.1/ZAP_2.11.1_Linux.tar.gz
-        mkdir zap
-        tar -xvf ZAP_2.11.1_Linux.tar.gz
-        cd ZAP_2.11.1
-        ./zap.sh -cmd -quickurl https://www.example.com -quickprogress -quickout ../zap_report.html 
+       apt-get update
+       apt-get -y install wget
+       apt-get -y install default-jdk
+       wget https://github.com/zaproxy/zaproxy/releases/download/v2.11.1/ZAP_2.11.1_Linux.tar.gz
+       mkdir zap
+       tar -xvf ZAP_2.11.1_Linux.tar.gz
+       chmod +x ZAP_2.11.1/zap.sh
+       cd ZAP_2.11.1
+       ./zap.sh -cmd -quickurl https://www.example.com -quickprogress -quickout ../zap_report.html 
         
 artifacts:
   files:

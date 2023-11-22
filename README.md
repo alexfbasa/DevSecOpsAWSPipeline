@@ -83,6 +83,8 @@ snyk monitor --file=build.gradle --reachable
 **Note:** Once the Java application is run, malicious_file.zip will be deleted. To run it again, run `git checkout .`
 prior to the next Java run.
 
+**Note:** Do not forget to add sonar parameters into the [pom.xml](./pom.xml) properties tag.
+
 ### Screenshots
 
 #### CLI
